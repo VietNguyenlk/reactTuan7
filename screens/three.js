@@ -5,9 +5,44 @@ import { useEffect, useState } from 'react';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
 export default function three(){
+
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetch('https://653f48f29e8bd3be29e029cd.mockapi.io/Drinks')
+        .then(response => response.json())
+        .then(json => {
+            setData(json);           
+        });
+}, []);
+
+
+
+
     return(
 
         <View style={styles.container}>
+                {
+                    data.map((item) => {
+                        return(
+                          
+                          <View  >              
+                          <View style={{flexDirection: 'column', marginLeft: '15px'}}>
+
+
+                              <Image source={{uri: item.image}} style ={{width: 50,height:50}} />
+                              <Text style={{marginTop: '0px', marginLeft: '10px', fontWeight: '600'}} >{item.name}</Text>
+                          </View>         
+                            
+                          </View>
+                          
+                          
+                          
+                        )
+                    })
+                }
+
+
+
 
               <View style={styles.bottom}>
                  <TouchableOpacity style={styles.touch} >
