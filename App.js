@@ -4,6 +4,7 @@ import { StatusBar } from 'expo-status-bar';
 import { Button, Image } from 'react-native';
 import { StyleSheet, Text, View } from 'react-native';
 import two from './screens/two'
+import three from './screens/three'
 
 
 
@@ -45,9 +46,8 @@ export default function App() {
             <Stack.Screen name='two' component={two} options={{headerTitle:'Shop Near Me',
                                                                 headerBackImageSource :()=> {
                                                                   source(require('./assets/image 177.png'))
-                                                                }
-          } 
-                                                                       }/>
+                                                                }  }  }/>
+            <Stack.Screen name='three' component={three}/>
        </Stack.Navigator>
     </NavigationContainer>
     
